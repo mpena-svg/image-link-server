@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imágenes a links · Conversión masiva</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Imágenes → links</h1>
+      <span class="app-header__status" id="healthStatus">comprobando servidor…</span>
+    </header>
+
+    <section class="dropzone" id="dropzone" tabindex="0">
+      <input type="file" id="fileInput" multiple accept="image/*" hidden />
+      <div class="dropzone__content">
+        <p class="dropzone__title">Arrastra tus imágenes aquí</p>
+        <p class="dropzone__subtitle">o haz clic para seleccionarlas — hasta 500 por lote</p>
+      </div>
+    </section>
+
+    <section class="progress-panel" id="progressPanel" hidden>
+      <div class="progress-panel__row">
+        <span id="progressLabel">Subiendo 0 / 0</span>
+        <span id="progressPct">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-bar__fill" id="progressFill"></div>
+      </div>
+    </section>
+
+    <section class="results" id="resultsSection" hidden>
+      <div class="results__header">
+        <h2 id="resultsCount">0 imágenes procesadas</h2>
+        <div class="results__actions">
+          <button class="btn btn--ghost" id="copyAllBtn" type="button">Copiar todos los links</button>
+          <button class="btn btn--primary" id="exportBtn" type="button">Descargar Excel</button>
+        </div>
+      </div>
+      <div class="results__table-wrap">
+        <table class="results__table">
+          <thead>
+            <tr>
+              <th>Vista previa</th>
+              <th>Archivo</th>
+              <th>Link</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="toast" id="toast" hidden></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
